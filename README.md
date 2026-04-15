@@ -1,76 +1,119 @@
+*This project has been created as part of the 42 curriculum by arpenel.*
+
 # NetPractice
 
-A network configuration project from the 42 curriculum. The goal is to solve 10 levels of increasingly complex networking puzzles by correctly assigning IP addresses, subnet masks, and routes so that all hosts can communicate.
+## Description
 
-No coding involved — this one is pure networking logic.
+NetPractice is a project from the 42 curriculum designed to teach the fundamentals of computer networking through practical exercises.
 
-## What it's about
+The goal is to solve a series of network configuration problems by identifying and correcting errors so that devices can communicate correctly. The project is presented as an interactive training interface with multiple levels, each simulating a network scenario that must be analyzed and fixed.
 
-Each level presents a broken network topology. You get a mix of hosts, switches, routers, and interfaces with some fields already filled in and others left blank. Your job is to figure out the missing values so that every connection works.
+Through this project, you will develop a solid understanding of how networks operate and how to troubleshoot connectivity issues.
 
-The concepts you actually need to understand:
+---
 
-- **IP addresses** — how devices identify each other on a network
-- **Subnet masks** — how the network figures out which devices can talk directly vs. which ones need a router
-- **Routing tables** — how packets know where to go when the destination isn't on the local network
+## Instructions
 
-That's it. There's no trick. If you understand these three things deeply, you can solve every level.
+### Running the training interface
 
-## Key concepts (quick rundown)
+To start the NetPractice interface, run:
 
-### IP addresses
+```bash
+./run.sh
+```
 
-An IPv4 address is 4 numbers separated by dots, each between 0 and 255 (e.g., `192.168.1.42`). It's split into two parts: the **network portion** (which network the device belongs to) and the **host portion** (which specific device on that network).
+Then open your browser at the address displayed in the terminal (usually):
 
-The subnet mask determines where the split happens.
+http://localhost:3000
 
-### Subnet masks
+---
 
-A subnet mask like `255.255.255.0` (also written `/24`) means the first 24 bits identify the network and the last 8 bits identify the host.
+### Solving the levels
 
-Two devices can communicate directly (without a router) **only if they share the same network address**. To check: apply the mask to both IPs with a bitwise AND. If the results match, same network. If not, you need routing.
+- Each level contains a network with incorrect configurations.
+- You must fix parameters such as:
+  - IP addresses
+  - Subnet masks
+  - Default gateways
+- Once the configuration is correct, validation will allow you to proceed to the next level.
 
-Common masks you'll use:
+---
 
-| CIDR | Mask | Usable hosts |
-|------|------|-------------|
-| /30 | 255.255.255.252 | 2 |
-| /28 | 255.255.255.240 | 14 |
-| /26 | 255.255.255.192 | 62 |
-| /25 | 255.255.255.128 | 126 |
-| /24 | 255.255.255.0 | 254 |
+### Exporting configurations
 
-Formula: usable hosts = 2^(32 - prefix) - 2 (you lose one address for the network ID and one for broadcast).
+After successfully completing a level:
 
-### Routing
+- Click on the "Export" button in the interface
+- A configuration file in `.json` format will be generated
+- Save this file
 
-When a device wants to reach an IP that's not on its local subnet, it forwards the packet to its **default gateway** (usually a router interface on the same subnet). The router then checks its own routing table to decide where to send it next.
+---
 
-A route of `0.0.0.0/0` (or `default`) means "send everything you don't have a specific route for to this next hop." Most hosts only need this default route pointing at their gateway.
+### Submission requirements
 
-### Reserved addresses
+- You must submit exactly 10 exported configuration files, one for each level
+- Each file must correspond to a completed level
+- All files must be placed at the root of your Git repository
 
-Some ranges you can't use for regular hosts:
-- `127.0.0.0/8` — loopback (localhost)
-- `0.0.0.0` — not a valid host address
-- Network address and broadcast address of any subnet are also off limits
+Example:
 
-## Tips that saved me time
+level1.json
+level2.json
+level3.json
+level4.json
+level5.json
+level6.json
+level7.json
+level8.json
+level9.json
+level10.json
 
-1. **Start with what's locked.** Read the fixed values first. They constrain everything else.
-2. **Check subnet membership before anything else.** Two interfaces connected by a link must be on the same subnet. Period.
-3. **Watch out for /30 subnets.** They only allow 2 hosts — perfect for point-to-point router links, but easy to mess up because there's almost no room for error.
-4. **Trace the packet path mentally.** Pick a source and destination, then walk the packet hop by hop. Does each device along the way know where to send it? If not, fix the routing table.
-5. **Don't overthink it.** The later levels look intimidating, but they're just combinations of the same basic rules.
+Failure to follow these requirements may result in an invalid submission.
 
-## How to use
+---
 
-1. Access the NetPractice training interface through the 42 intra
-2. Work through levels 1 to 10
-3. Export your configuration files once all levels are solved
-4. Submit via git as usual
+## Features
 
-## Resources that helped
+- Interactive network simulation
+- Progressive difficulty levels
+- Real-time validation of configurations
+- Practical troubleshooting experience
 
-- [NetPractice: An Intro to IP Addresses and Subnets](https://www.youtube.com/watch?v=HQUw0CfQWAM&t=1229s) — solid video walkthrough of the core concepts
-- [42 NetPractice walkthrough (lpaube)](https://github.com/lpaube/NetPractice) — visual breakdowns of each level
+---
+
+## Resources
+
+### Documentation & Learning Materials
+
+- RFC 791 - Internet Protocol  
+- RFC 793 - Transmission Control Protocol  
+- Cisco Networking Basics  
+- OpenClassrooms – Computer Networking  
+- Linux networking tools documentation (`ip`, `ifconfig`)  
+
+---
+
+### Networking Concepts Studied
+
+This project covers the following core networking concepts:
+
+- TCP/IP addressing  
+- Subnet masks  
+- Default gateways  
+- Routers  
+- Switches  
+- OSI model (network layers)  
+- Network communication  
+- Network troubleshooting  
+
+---
+
+### AI Usage
+
+Artificial intelligence was used in the context of this project for:
+
+- Structuring and writing the README file  
+- Clarifying networking concepts  
+- Improving documentation quality  
+
+No AI was used to solve the NetPractice exercises themselves.
