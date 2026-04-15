@@ -85,11 +85,8 @@ Failure to follow these requirements may result in an invalid submission.
 
 ### Documentation & Learning Materials
 
-- RFC 791 - Internet Protocol  
-- RFC 793 - Transmission Control Protocol  
-- Cisco Networking Basics  
-- OpenClassrooms – Computer Networking  
-- Linux networking tools documentation (`ip`, `ifconfig`)  
+- [NetPractice: An Intro to IP Addresses and Subnets](https://www.youtube.com/watch?v=HQUw0CfQWAM&t=1097s)
+- [Guide to NetPractise](https://github.com/lpaube/NetPractice)  
 
 ---
 
@@ -103,8 +100,7 @@ This project covers the following core networking concepts:
 - Routers  
 - Switches  
 - OSI model (network layers)  
-- Network communication  
-- Network troubleshooting  
+- Network communication   
 
 ---
 
@@ -112,8 +108,8 @@ This project covers the following core networking concepts:
 
 Artificial intelligence was used in the context of this project for:
 
-- Structuring and writing the README file  
+- Structuring the README file  
 - Clarifying networking concepts  
-- Improving documentation quality  
+
 
 No AI was used to solve the NetPractice exercises themselves.
