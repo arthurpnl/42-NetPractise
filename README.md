@@ -74,4 +74,3 @@ Some ranges you can't use for regular hosts:
 
 - [NetPractice: An Intro to IP Addresses and Subnets](https://www.youtube.com/watch?v=HQUw0CfQWAM&t=1229s) — solid video walkthrough of the core concepts
 - [42 NetPractice walkthrough (lpaube)](https://github.com/lpaube/NetPractice) — visual breakdowns of each level
-- RFC 791 if you want to go deeper (you probably don't need to for this project)
